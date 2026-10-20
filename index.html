@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="A thoughtful movie-night picker for the whole family.">
+  <title>Gather — Find your next family watch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Gather home"><span class="wordmark-icon" aria-hidden="true">g</span> gather<span class="wordmark-dot">.</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home" data-page="home">Home</a>
+      <a class="nav-link" href="#browse" data-page="movies">Movies</a>
+      <a class="nav-link" href="#browse" data-page="series">Series &amp; shows</a>
+      <a class="nav-link" href="#browse" data-page="animation">Animation</a>
+      <a class="nav-link" href="#browse" data-page="anime">Anime</a>
+      <a class="nav-link" href="#browse" data-page="kdrama">K-dramas</a>
+    </nav>
+    <span class="header-note"><span class="live-dot" aria-hidden="true"></span> MADE FOR MOVIE NIGHT</span>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> LESS SCROLLING, MORE SNUGGLING</p>
+        <h1 id="page-title">Find your<br><em>feel-good</em> watch.</h1>
+        <p class="hero-description">Tell us the mood, who's watching, and how much time you've got. We'll find something everyone can agree on.</p>
+        <div class="hero-footnote"><span aria-hidden="true">✦</span> Movies, shows &amp; little-known gems for your next night in.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-sun"></div>
+        <div class="art-hill art-hill-back"></div>
+        <div class="art-hill art-hill-front"></div>
+        <div class="art-ticket"><span>TONIGHT'S<br>FEATURE</span><b>✳</b></div>
+        <span class="art-spark spark-one">✦</span>
+        <span class="art-spark spark-two">✳</span>
+        <span class="art-spark spark-three">·</span>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-labelledby="search-title">
+      <div class="search-copy">
+        <p class="eyebrow">ALREADY HAVE A FAVORITE?</p>
+        <h2 id="search-title">Find something like it.</h2>
+        <p>Search a movie or show and we'll find similar things to watch.</p>
+      </div>
+      <form id="search-form" class="search-form" role="search">
+        <label class="visually-hidden" for="title-search">Search movies and shows</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="title-search" name="query" type="search" placeholder="Try “Criminal Minds”" autocomplete="off" required>
+        <button type="submit">Search <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="search-note">Search is from our starter catalog. Age guidance is shown on each pick.</p>
+    </section>
+
+    <section class="planner" aria-labelledby="planner-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR NIGHT, YOUR RULES</p>
+          <h2 id="planner-title">What sounds good?</h2>
+        </div>
+        <span class="step-label"><span>01</span> / 02</span>
+      </div>
+
+      <form id="preferences-form">
+        <fieldset class="field-group mood-group">
+          <legend><span class="field-number">01</span> Pick the mood <span class="optional">Choose one</span></legend>
+          <div class="choice-grid mood-grid">
+            <label class="choice-card">
+              <input type="radio" name="mood" value="cozy" checked>
+              <span class="choice-emoji" aria-hidden="true">☁️</span><span>Cozy &amp; calm</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="mood" value="funny">
+              <span class="choice-emoji" aria-hidden="true">☀️</span><span>In a giggly mood</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="mood" value="adventurous">
+              <span class="choice-emoji" aria-hidden="true">🧭</span><span>Big adventure</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="mood" value="heartwarming">
+              <span class="choice-emoji" aria-hidden="true">💛</span><span>Make us feel</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="mood" value="thoughtful">
+              <span class="choice-emoji" aria-hidden="true">🌙</span><span>Something thoughtful</span>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="mood" value="suspenseful">
+              <span class="choice-emoji" aria-hidden="true">🔎</span><span>A little suspense</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="filter-row">
+          <div class="select-field">
+            <label for="age-filter"><span class="field-number">02</span> Who's watching?</label>
+            <div class="select-wrap">
+              <span class="select-icon" aria-hidden="true">♡</span>
+              <select id="age-filter" name="age">
+                <option value="0">Family (all ages)</option>
+                <option value="7">Youngest viewer: 7</option>
+                <option value="10">Youngest viewer: 10</option>
+                <option value="13">Youngest viewer: 13</option>
+                <option value="17">Adults 17+</option>
+              </select>
+            </div>
+          </div>
+          <div class="select-field">
+            <label for="format-filter"><span class="field-number">03</span> What are we watching?</label>
+            <div class="select-wrap">
+              <span class="select-icon" aria-hidden="true">▣</span>
+              <select id="format-filter" name="format">
+                <option value="any">Surprise us</option>
+                <option value="movie">A movie</option>
+                <option value="series">A series</option>
+                <option value="tv">A TV show</option>
+              </select>
+            </div>
+          </div>
+          <div class="select-field">
+            <label for="time-filter"><span class="field-number">04</span> How much time?</label>
+            <div class="select-wrap">
+              <span class="select-icon" aria-hidden="true">◷</span>
+              <select id="time-filter" name="time">
+                <option value="any">We're flexible</option>
+                <option value="90">Up to 90 minutes</option>
+                <option value="120">Up to 2 hours</option>
+                <option value="long">A long one is fine</option>
+              </select>
+            </div>
+            <span class="field-hint">For shows, this means episode length.</span>
+          </div>
+          <div class="select-field">
+            <label for="genre-filter"><span class="field-number">05</span> Any favorite genre?</label>
+            <div class="select-wrap">
+              <span class="select-icon" aria-hidden="true">✳</span>
+              <select id="genre-filter" name="genre">
+                <option value="any">Open to anything</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Drama">Drama</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Crime">Crime</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Documentary">Documentary</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Romance">Romance</option>
+                <option value="K-Drama">K-Drama</option>
+                <option value="Anime">Anime</option>
+                <option value="Reality">Reality</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <p><span aria-hidden="true">✧</span> No wrong answers. Just good nights in.</p>
+          <button class="find-button" type="submit">Find our watch <span aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section id="browse" class="browse-section" aria-labelledby="browse-title" hidden>
+      <div class="browse-heading">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true">✳</span> YOUR NEXT BINGE STARTS HERE</p>
+          <h2 id="browse-title">All movies</h2>
+          <p id="browse-description">Browse the catalog. Every pick includes its genres and age guidance.</p>
+        </div>
+        <label class="browse-sort-label" for="browse-sort">Sort
+          <select id="browse-sort">
+            <option value="title">Title A–Z</option>
+            <option value="year">Newest first</option>
+          </select>
+        </label>
+      </div>
+      <div id="browse-grid" class="recommendation-grid"></div>
+      <p class="rating-note">This is a hand-curated starter catalog, not a complete streaming database. Age guidance is an editorial estimate; please check the official local rating.</p>
+    </section>
+
+    <section id="results" class="results-section" aria-labelledby="results-title" aria-live="polite" hidden>
+      <div class="results-heading">
+        <div>
+          <p id="results-eyebrow" class="eyebrow"><span aria-hidden="true">✳</span> A FEW IDEAS FOR TONIGHT</p>
+          <h2 id="results-title">Your watchlist, <em>curated.</em></h2>
+        </div>
+        <button id="try-again" class="text-button" type="button">Change my picks <span aria-hidden="true">↗</span></button>
+      </div>
+      <div id="recommendations" class="recommendation-grid"></div>
+      <div id="similar-section" class="similar-section" hidden>
+        <div class="similar-heading">
+          <div><p class="eyebrow">IF YOU LIKE THAT...</p><h3>Keep the good vibes going.</h3></div>
+          <p id="similar-intro"></p>
+        </div>
+        <div id="similar-list" class="similar-grid"></div>
+      </div>
+      <p id="rating-note" class="rating-note">Age guidance is an editorial estimate, not an official rating. Please check your local rating and content details before watching.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-wordmark" href="#">gather<span class="wordmark-dot">.</span></a>
+    <p>Made for the moments between “what should we watch?” and “that was so good.”</p>
+    <span>© 2026 · A little more together.</span>
+  </footer>
+</body>
+</html>
